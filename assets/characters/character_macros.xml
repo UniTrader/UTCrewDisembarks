@@ -1,0 +1,9 @@
+<macros>
+  <!-- Yisha Tarren -->
+  <macro name="character_argon_not_yisha_macro" class="npc">
+    <component ref="character_argon_not_yisha" />
+    <properties>
+      <identification name="not Yisha" owner="player" race="argon" female="true" page="0"/>
+    </properties>
+  </macro>
+</macros>

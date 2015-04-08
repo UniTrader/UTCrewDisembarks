@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="../../content.xsl"?>
+<content id="UTStation Leave" name="Station Leave" description="Lets the Crew of the Skunk Disembark on Platform,s instead of hiding them in the Toilet" author="UniTrader" date="2015-04-06" version="10" save="false" uninstaller="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://utnas/~unitrader/XRebirthxsds/content.xsd">
+  <text language="44" name="Station Leave" description="Lets the Crew of the Skunk Disembark on Platform,s instead of hiding them in the Toilet" author="UniTrader">
+    <info site="forum.egosoft.com" url="http://forum.egosoft.com/viewtopic.php?t=379177" />
+  </text>
+  <text language="49" name="Landeurlaub" description="Lässt die Crew der Skunk auf Platformen aussteigen anstatt dass sie sich auf der Toilette verstecken" author="UniTrader">
+    <info site="forum.egosoft.com" url="http://forum.egosoft.com/viewtopic.php?t=379177" />
+  </text>
+</content>

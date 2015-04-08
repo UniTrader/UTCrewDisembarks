@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff>
+  <!-- enable Placement of NPCs -->
+  <replace sel='//component[@class="destructible"]/@class'>interior</replace>
+  <add sel="//connections">
+    <!-- Yisha - supposed to be in front of Ladder but doesnt work somehow :S - maybe has to be added directly to the Platform, she is a bit of a special case.. -->
+    <connection name="Connection_Player_Crew_01" tags="copilot  stand_leanwall">
+      <offset>
+        <position x="0" y="3.7" z="8.6"/>
+        <rotation yaw="0" />
+      </offset>
+    </connection>
+    <!-- Lean on the left Rail in the Skunk -->
+    <connection name="Connection_Player_Crew_02" tags="npc crew stand">
+      <offset>
+        <position x="-1.5" y="4.35" z="6.6"/>
+        <rotation yaw="-80" />
+      </offset>
+    </connection>
+    <!-- Lean on the right Rail in the Skunk -->
+    <connection name="Connection_Player_Crew_03" tags="npc crew stand">
+      <offset>
+        <position x="1.5" y="4.35" z="5.5"/>
+        <rotation yaw="100" />
+      </offset>
+    </connection>
+    <!-- left of the Ramp -->
+    <connection name="Connection_Player_Crew_04" tags="npc crew stand">
+      <offset>
+        <position x="-2" y="0" z="-3"/>
+        <rotation yaw="-60" />
+      </offset>
+    </connection>
+    <!-- right of the Ramp -->
+    <connection name="Connection_Player_Crew_05" tags="npc crew stand">
+      <offset>
+        <position x="2" y="0" z="-4"/>
+        <rotation yaw="60" />
+      </offset>
+    </connection>
+    <!-- joke - Toilet -->
+    <connection name="Connection_Player_Crew_06" tags="npc crew stand_nerv">
+      <offset>
+        <position x="0" y="3.8" z="11"/>
+        <rotation yaw="0" />
+      </offset>
+    </connection>
+    <!-- joke - looking out of Cargobay of Skunk -->
+    <connection name="Connection_Player_Crew_07" tags="npc crew stand">
+      <offset>
+        <position x="-2" y="7.7" z="-7"/>
+        <rotation yaw="-30" />
+      </offset>
+    </connection>
+  </add>
+</diff>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- replace all occurences of player.copilot with md.$copilot - 6 Ocurrences-->
+<diff>
+  <add sel="//cue[@name='DefaultComm']/conditions">
+    <check_value value="not $actor.$PlatformSlotTags"/>
+  </add>
+  <replace sel="//cue[@name='OnBoardComm']/conditions/check_value[@value='$actor.ship == player.primaryship']">
+    <check_value value="$actor.ship == player.primaryship or $actor.$PlatformSlotTags == tag.crew"/>
+  </replace>
+  <!-- OnHired Cue -->
+  <!-- turn Actor over to Player and let him enter the Skunk with everyone else (instead of Enter Cutscene) -->
+  <replace sel="//cue[@name='OnHired']/actions/do_if[@value='player.room == $actor.room']/play_cutscene">
+    <set_value name="$actor.$PlatformSlotTags" value="tag.crew"/>
+  </replace>
+  <replace sel="//cue[@name='OnHired']/actions/do_if[@value='player.room == $actor.room']/add_actor_to_playership">
+    <add_to_group groupname="md.$PlayerCrew" object="$actor"/>
+  </replace>
+  <!-- OnFired Cue  - ToDo: Test: is this really safe?-->
+  <!-- turn Actor over to Station Owner or Previous owner and leave him at the Station (instead of Enter Cutscene) -->
+  <replace sel="//cue[@name='OnFired']/actions">
+    <actions>
+      <do_if value="not player.platform">
+        <play_cutscene key="'LeavePlayerShipWithDrone'">
+          <param name="npcref" object="$actor" />
+        </play_cutscene>
+        <start_actor_transport actor="$actor" />
+      </do_if>
+      <do_else>
+        <remove_value name="$actor.$PlatformSlotTags"/>
+        <set_owner object="$actor" faction="$actor.container.faction"/>
+      </do_else>
+    </actions>
+  </replace>
+</diff>

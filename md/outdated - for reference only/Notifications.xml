@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- replace all occurences of player.copilot with md.$copilot - 18 Ocurrences-->
+<diff>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <!--Also 2 Ocurrences of player.copilot.page -->
+  <replace sel="(//@*[. = &quot;player.copilot.page&quot;])[1]">md.$Copilot.page</replace>
+  <replace sel="(//@*[. = &quot;player.copilot.page&quot;])[1]">md.$Copilot.page</replace>
+</diff>

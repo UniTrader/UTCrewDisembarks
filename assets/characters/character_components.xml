@@ -1,0 +1,13 @@
+<components>
+  <!-- Argon Civil-->
+  <component name="character_argon_not_yisha" class="npc">
+    <size>
+      <max x="0.5" y="1.0" z="0.5"/>
+      <center x="0.0" y="1.0" z="0.0"/>
+    </size>
+    <connections>
+      <connection name="attachments" tags="attachment" value="0" optional="1" />
+      <connection name="copilot" tags="copilot" />
+    </connections>
+  </component>
+</components>

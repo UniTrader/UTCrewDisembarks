@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- replace all occurences of player.copilot with md.$copilot - 2 Ocurrences-->
+<diff>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+  <replace sel="(//@*[. = &quot;player.copilot&quot;])[1]">md.$Copilot</replace>
+</diff>

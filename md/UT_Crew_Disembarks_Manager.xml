@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mdscript xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="UT_Crew_Disembarks_Manager" xsi:noNamespaceSchemaLocation="http://utnas/~unitrader/XRebirthxsds/md.xsd">
+  <cues>
+    <cue name="Init" checktime="5s" checkinterval="5s">
+      <conditions>
+        <cue_is_complete cue="md.Setup.Start"/>
+        <check_value value="player.copilot.exists"/>
+      </conditions>
+      <actions>
+        <set_value name="md.$Copilot" exact="player.copilot"/>
+        <create_group groupname="md.$PlayerCrew"/>
+        <set_value name="$Testing" comment="Enable to fill Platforms on Docking with Actors to confirm Actor Positions" chance="0"/>
+      </actions>
+    </cue>
+    <cue name="Player_Stand_Up">
+      <conditions comment="not absolutely reliable for Docking, but at least triggers at the right time ;)">
+        <event_player_stopped_control/>
+        <check_value value="player.target.isclass.dockingbay"/>
+      </conditions>
+      <actions>
+        <set_value name="$dockingbay" exact="player.target"/>
+        <find_object_component groupname="$PlayerCrew" object="player.primaryship" class="class.npc" multiple="true" owner="faction.player"/>
+        <do_all exact="$PlayerCrew.count" counter="$i">
+          <do_if value="$PlayerCrew.{$i} != md.$Copilot">
+            <add_actor_to_platform result="$success" actor="$PlayerCrew.{$i}" dockingbay="$dockingbay"/>
+            <do_if value="$success">
+              <add_to_group groupname="md.$PlayerCrew" object="$PlayerCrew.{$i}"/>
+              <set_value name="$PlayerCrew.{$i}.$PlatformSlotTags" exact="tag.crew" comment="that they use their assigned Platform Positions instead of randomly hanging around in the Station"/>
+            </do_if>
+          </do_if>
+        </do_all>
+        <!-- TESTING: Fill all Actor Slots of Platform -->
+        <do_if value="Init.$Testing?">
+          <do_all exact="50">
+            <create_platform_actor name="$actor" dockingbay="$dockingbay" type="entitytype.commander">
+              <owner exact="faction.player"/>
+            </create_platform_actor>
+            <set_value name="$actor.$PlatformSlotTags" exact="tag.crew" comment="to differ between Player Crew and Station Actors and also to give them their own connections/positions"/>
+          </do_all>
+        </do_if>
+      </actions>
+      <cues>
+        <cue name="Player_Not_Docked" comment="To make Docking Condition reliable ^^ Will Trigger Undocking/Put the Actors back when he did something diffrent than Docking (canceled in the next cue if he did dock)">
+          <delay exact="15s"/>
+          <actions>
+            <signal_cue cue="Player_Undocked"/>
+          </actions>
+        </cue>
+        <cue name="Player_Docked">
+          <conditions>
+            <event_object_changed_room object="player.entity"/>
+            <check_value value="player.platform"/>
+          </conditions>
+          <actions>
+            <cancel_cue cue="Player_Not_Docked" comment="Abort fallback for the event the player didnt dock while targeting a dockingbay - see previous cue"/>
+            <!-- gives unnecesary Complications regarding Menus (and may be moved to another Extension) - commented out. -->
+            <!--<add_actor_to_platform actor="md.$Copilot" dockingbay="player.platform"/>-->
+          </actions>
+        </cue>
+        <cue name="Player_Undocked">
+          <conditions>
+            <check_any>
+              <check_all>
+                <event_object_changed_room object="player.entity"/>
+                <check_value exact="player.entity.container" value="player.primaryship" comment="Only if player is on his ship"/>
+              </check_all>
+              <event_cue_signalled/>
+            </check_any>
+          </conditions>
+          <actions>
+            <do_all exact="md.$PlayerCrew.count" counter="$i" reverse="true" comment="reverse because Entries are also removed therefore changing the Indexes above the current one">
+              <do_if value="md.$PlayerCrew.{$i}.$PlatformSlotTags" exact="tag.crew">
+                <remove_value name="md.$PlayerCrew.{$i}.$PlatformSlotTags"/>
+              </do_if>
+              <add_actor_to_playership result="$success" actor="md.$PlayerCrew.{$i}"/>
+              <!-- ToDo: what to do if not succesful? current behavior: they will be warped back to the skunk on next undocking, but thats not the goal.. -->
+              <do_if value="$success">
+                <remove_from_group group="md.$PlayerCrew" object="md.$PlayerCrew.{$i}"/>
+              </do_if>
+            </do_all>
+            <!-- gives unnecesary Complications regarding Menus (and may be moved to another Extension) - commented out. -->
+            <!--<add_copilot actor="md.$Copilot"/>-->
+            <reset_cue cue="Player_Stand_Up"/>
+          </actions>
+        </cue>
+      </cues>
+    </cue>
+  </cues>
+</mdscript>

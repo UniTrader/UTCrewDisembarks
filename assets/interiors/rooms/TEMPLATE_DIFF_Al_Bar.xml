@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- File is WiP -->
+<diff>
+  <add sel="//connections">
+    <!-- ================================================================ -->
+    <!-- General Positions for all Interior Platforms (NOT Rep-Platforms) -->
+    <!-- ================================================================ -->
+    <connection name="Connection_Player_Crew_01" tags="copilot  stand">
+      <offset>
+        <position x="12" y="5" z="-89"/>
+        <rotation yaw="45" />
+      </offset>
+    </connection>
+    <!-- AL Bar & Admin - annoying the Guard to the right of the Bridge -->
+    <connection name="Connection_Player_Crew_02" tags="npc crew stand">
+      <offset>
+        <position x="1.1" y="5" z="-76"/>
+        <rotation yaw="220" />
+      </offset>
+    </connection>
+    <connection name="Connection_Player_Crew_03" tags="npc crew stand">
+      <offset>
+        <position x="3.1" y="5" z="-76"/>
+        <rotation yaw="140" />
+      </offset>
+    </connection>
+    <!-- AL Bar & Admin - Talking with the random NPC right of the Ramp (also Yisha) -->
+    <connection name="Connection_Player_Crew_04" tags="npc crew stand">
+      <offset>
+        <position x="12" y="5" z="-91"/>
+        <rotation yaw="135" />
+      </offset>
+    </connection>
+    <connection name="Connection_Player_Crew_05" tags="npc crew stand">
+      <offset>
+        <position x="10" y="5" z="-89"/>
+        <rotation yaw="315" />
+      </offset>
+    </connection>
+    <!-- AL Bar & Admin - Toilet -->
+    <connection name="Connection_Player_Crew_06" tags="npc crew stand_nerv">
+      <offset>
+        <position x="-4.6" y="8.8" z="-104.2"/>
+        <rotation yaw="210" />
+      </offset>
+    </connection>
+    <!-- AL Bar - joke - on top of Container on Crane -->
+    <connection name="Connection_Player_Crew_07" tags="npc crew stand stand_nerv">
+      <offset>
+        <position x="-27" y="19.7" z="-102.7"/>
+        <rotation yaw="210" />
+      </offset>
+    </connection>
+    <!-- AL Bar & Admin - joke - looking out of Cargobay of Skunk -->
+    <connection name="Connection_Player_Crew_08" tags="npc crew stand">
+      <offset>
+        <position x="4.6" y="12.6" z="-88.3"/>
+        <rotation yaw="180" />
+      </offset>
+    </connection>
+    <!-- AL Bar - joke - in Mecha -->
+    <connection name="Connection_Player_Crew_09" tags="npc crew sit">
+      <offset>
+        <position x="-14.5" y="6.2" z="-76.5"/>
+        <rotation yaw="300" />
+      </offset>
+    </connection>
+    <!-- AL Trade - annoying the Guard to the left on the Bridge -->
+    <!--connection name="Connection_Player_Crew_11" tags="npc crew stand">
+      <offset>
+        <position x="-1.4" y="0" z="-37"/>
+        <rotation yaw="0" />
+      </offset>
+    </connection>
+    <connection name="Connection_Player_Crew_12" tags="npc crew stand">
+      <offset>
+        <position x="-1.4" y="0" z="-40"/>
+        <rotation yaw="180" />
+      </offset>
+    </connection-->
+    <!-- ================================================================ -->
+    <!--       End of General Positions for most Interior Platforms        -->
+    <!-- ================================================================ -->
+  </add>
+</diff>
